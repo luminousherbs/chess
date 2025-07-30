@@ -1,7 +1,27 @@
 .square {
     display: inline-block;
-    height: 5em;
-    width: 5em;
+    height: 5rem;
+    width: 5rem;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.square.light {
+    background-color: #E0F0F0;
+}
+
+.square.dark {
+    background-color: #708080;
+}
+
+.white-piece {
+    color: #FFFFFF;
+    -webkit-text-stroke: 2px #000000;
+}
+
+.black-piece {
+    color: #000000;
+    -webkit-text-stroke: 2px #FFFFFF;
 }
 
 .board {
