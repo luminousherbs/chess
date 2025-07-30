@@ -17,6 +17,7 @@ for (let y = 0; y < 8; y++) {
         square.className = "square";
         square.dataset.y = y;
         square.dataset.x = x;
+        // square.textContent = "♟";
         rank.appendChild(square);
     }
     board.appendChild(rank);
