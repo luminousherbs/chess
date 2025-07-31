@@ -50,7 +50,6 @@ for (let y = 0; y < 8; y++) {
     for (let x = 0; x < 8; x++) {
         const square = document.createElement("div");
         square.className += "square ";
-        // square.className += Math.random() < 0.5 ? "white-piece ": "black-piece ";
         square.className += (y % 2 === x % 2) ? "light ": "dark ";
         square.dataset.y = y;
         square.dataset.x = x;
