@@ -10,14 +10,14 @@ board;
 
 // constants
 const layout = new Map([ // use Map instead of {} because arrays can't be used as object keys
-    [[0, 0], "♟"],
-    [[1, 0], "♟"],
-    [[2, 0], "♟"],
-    [[3, 0], "♟"],
-    [[4, 0], "♟"],
-    [[5, 0], "♟"],
-    [[6, 0], "♟"],
-    [[7, 0], "♟"],
+    [[0, 0], {color: "white-piece", piece: "♟"}],
+    [[1, 0], {color: "black-piece", piece: "♟"}],
+    [[2, 0], {color: "black-piece", piece: "♟"}],
+    [[3, 0], {color: "white-piece", piece: "♟"}],
+    [[4, 0], {color: "black-piece", piece: "♟"}],
+    [[5, 0], {color: "white-piece", piece: "♟"}],
+    [[6, 0], {color: "white-piece", piece: "♟"}],
+    [[7, 0], {color: "black-piece", piece: "♟"}],
 ]);
 
 // create board
@@ -26,8 +26,8 @@ for (let y = 0; y < 8; y++) {
     for (let x = 0; x < 8; x++) {
         const square = document.createElement("div");
         square.className += "square ";
-        square.className += Math.random() < 0.5 ? "white-piece ": "black-piece ";
-        square.className += (y % 2 === x % 2) ? "light": "dark";
+        // square.className += Math.random() < 0.5 ? "white-piece ": "black-piece ";
+        square.className += (y % 2 === x % 2) ? "light ": "dark ";
         square.dataset.y = y;
         square.dataset.x = x;
         rank.appendChild(square);
@@ -36,5 +36,8 @@ for (let y = 0; y < 8; y++) {
 }
 
 for (const [key, value] of layout) {
-    squareAt(key[0], key[1]).textContent = value;
+    const square = squareAt(key[0], key[1]);
+    square.textContent = value.piece;
+    square.className += value.color + " ";
+    
 }
