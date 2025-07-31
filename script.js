@@ -2,11 +2,23 @@ console.log(location.pathname);
 
 // functions
 function squareAt(x, y) {
-    return document.querySelectorAll(`[data-x="${x}"][data-y="${y}"]`)
+    return document.querySelector(`[data-x="${x}"][data-y="${y}"]`)
 }
 
 // html elements for auto-complete
 board;
+
+// constants
+const layout = new Map([ // use Map instead of {} because arrays can't be used as object keys
+    [[0, 0], "♟"],
+    [[1, 0], "♟"],
+    [[2, 0], "♟"],
+    [[3, 0], "♟"],
+    [[4, 0], "♟"],
+    [[5, 0], "♟"],
+    [[6, 0], "♟"],
+    [[7, 0], "♟"],
+]);
 
 // create board
 for (let y = 0; y < 8; y++) {
@@ -18,9 +30,11 @@ for (let y = 0; y < 8; y++) {
         square.className += (y % 2 === x % 2) ? "light": "dark";
         square.dataset.y = y;
         square.dataset.x = x;
-        square.textContent = "♟";
         rank.appendChild(square);
     }
     board.appendChild(rank);
 }
-console.log(squareAt(4, 7));
+
+for (const [key, value] of layout) {
+    squareAt(key[0], key[1]).textContent = value;
+}
